@@ -2,6 +2,9 @@
 
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.io.FileReader"%>
+<%@page import="java.io.IOException"%>
 
 <!DOCTYPE html>
 <html>
@@ -79,6 +82,8 @@
     Map<String,String> envs = System.getenv();
     String[] sorted = new String[envs.keySet().size()];
 
+    String configFileLocation = ( envs.get("configfilelocation") == null ? "NOENV" : envs.get("configfilelocation"));
+
     int pos = 0;
     for( String envName : envs.keySet())
     {
@@ -115,8 +120,46 @@
         </tbody>
         </table>
       </div>
-      <h5><span id="targeturl" class="label label-success">Using config file location /uth/config/config1</span></h5>
+      <h5><span id="targeturl" class="label label-success">Using config file location <%= configFileLocation %></span></h5>
+      <div class="container">
+<%
+      if( "NOENV".equals( configFileLocation ) )
+      {
+%>
+      <h5><span id="targeturl" class="label label-failure">No environment variable set (needs 'configFileLocation').</span></h5>
+<%        
+      }
+      else
+      {
+ %>
+      <b>
+ <%     	
+      	try
+      	{
+          BufferedReader br = null;
 
+          br = new BufferedReader(new FileReader(configFileLocation));
+            
+          String line = null;
+
+          while(( line = br.readLine() ) != null) 
+          {
+%>
+       <%= line %><br/>
+<%
+          }
+
+          br.close();
+        }
+      	catch( IOException exc )
+      	{
+%>
+      <h5><span id="targeturl" class="label label-failure">IO Exception when trying to load <%= configFileLocation %>.</span></h5>
+<%      		
+      	}
+      } 
+%>
+      </div>
     </div>
   </div>
 </div>
