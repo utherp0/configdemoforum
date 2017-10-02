@@ -58,7 +58,7 @@
     height:300px;
     overflow-y:scroll;
     width:100%;
-    background-color: green;
+    background-color: yellow;
   }
 
   </style>
@@ -112,9 +112,11 @@
 <%
     }
 %>
-      </tbody>
+        </tbody>
         </table>
       </div>
+      <h5><span id="targeturl" class="label label-success">Using config file location /uth/config/config1</span></h5>
+
     </div>
   </div>
 </div>
