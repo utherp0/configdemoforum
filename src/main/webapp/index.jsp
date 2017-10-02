@@ -90,7 +90,7 @@
     long end = System.currentTimeMillis();
 %>    
 
-      <div class="container" class="tab-pane">
+      <div class="container tab-pane">
         <h2>ENV Variables Visible to App</h2>
         <table class="table table-bordered">
         <thead>
