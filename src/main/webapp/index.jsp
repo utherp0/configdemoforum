@@ -103,7 +103,7 @@
     long end = System.currentTimeMillis();
 %>    
       <h5><span class="glyphicon glyphicon-time"></span> Duration of page build <b><%= end - start %>ms.</b></h5>
-      <div class="container tab-pane">
+      <div class="container tab-pane1">
         <table class="table table-bordered">
         <thead>
           <tr>
@@ -128,7 +128,7 @@
         </table>
       </div>
       <h5><span id="targeturl" class="label label-success">Using config file location <%= configFileLocation %></span></h5>
-      <div class="container tab-pane">
+      <div class="container tab-pane2">
 <%
       if( "NOENV".equals( configFileLocation ) )
       {
