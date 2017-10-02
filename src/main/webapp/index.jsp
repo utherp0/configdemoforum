@@ -103,6 +103,7 @@
     long end = System.currentTimeMillis();
 %>    
       <img src="images/red-hat-forum-emea-2017-logo.png" width="250px"><br/>
+      <h5>This is a JSP generated from OpenShift containing ConfigMap information injected in two different ways - via ENV variables and via a constructed file/mount.</h5>
       <h5><span class="glyphicon glyphicon-time"></span> Duration of page build <b><%= end - start %>ms.</b></h5>
       <div class="container tab-pane1">
         <table class="table table-bordered">
