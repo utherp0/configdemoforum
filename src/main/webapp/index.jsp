@@ -58,6 +58,7 @@
     height:300px;
     overflow-y:scroll;
     width:100%;
+    background-color: #eee;
   }
 
   </style>
