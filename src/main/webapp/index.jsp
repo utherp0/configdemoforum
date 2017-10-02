@@ -57,8 +57,15 @@
       .row.content {height: auto;} 
     }
 
-  .tab-pane{
+  .tab-pane1{
     height:300px;
+    overflow-y:scroll;
+    width:100%;
+    background-color: #bbb;
+  }
+
+  .tab-pane2{
+    height:75px;
     overflow-y:scroll;
     width:100%;
     background-color: #bbb;
