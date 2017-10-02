@@ -90,9 +90,8 @@
     
     long end = System.currentTimeMillis();
 %>    
-
+      <h5><span class="glyphicon glyphicon-time"></span> Duration of page build <b><%= end - start %>ms.</b></h5>
       <div class="container tab-pane">
-        <h2>ENV Variables Visible to App</h2>
         <table class="table table-bordered">
         <thead>
           <tr>
