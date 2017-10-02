@@ -61,7 +61,7 @@
     height:300px;
     overflow-y:scroll;
     width:100%;
-    background-color: yellow;
+    background-color: #bbb;
   }
 
   </style>
@@ -121,7 +121,7 @@
         </table>
       </div>
       <h5><span id="targeturl" class="label label-success">Using config file location <%= configFileLocation %></span></h5>
-      <div class="container">
+      <div class="container tab-pane">
 <%
       if( "NOENV".equals( configFileLocation ) )
       {
