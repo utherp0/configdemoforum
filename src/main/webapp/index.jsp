@@ -1,4 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Map"%>
+
 <!DOCTYPE html>
 <html>
   <title>Red Hat UKI Forum ConfigMap Example</title>
@@ -68,35 +72,47 @@
   <div class="row content">
     <div class="col-sm-12">
 
-    <b>Placeholder</b>
+<%
+    long start = System.currentTimeMillis();
+    
+    Map<String,String> envs = System.getenv();
+    String[] sorted = new String[envs.keySet().size()];
+
+    int pos = 0;
+    for( String envName : envs.keySet())
+    {
+      sorted[pos] = envName;
+      pos++;
+    }
+    
+    Arrays.parallelSort(sorted);
+    
+    long end = System.currentTimeMillis();
+%>    
+
       <div class="container" class="tab-pane">
-        <h2>Bordered Table</h2>
-        <p>The .table-bordered class adds borders to a table:</p>            
+        <h2>ENV Variables Visible to App</h2>
         <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
+            <th>ENV Name</th>
+            <th>Env Value</th>
           </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
-        </tr>
-        </tbody>
+
+<%    
+    for( int loop = 0; loop < sorted.length; loop++ )
+    {
+%>
+          <tr>
+            <td align="right"><b><%= sorted[loop] %></b></td>
+            <td><%= envs.get(sorted[loop]) %></td>
+          </tr>
+<%
+    }
+%>
+      </tbody>
         </table>
       </div>
     </div>
